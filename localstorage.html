@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Storing Data with HTML5 Local Storage</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js">
+</script>
+<script>
+if(localStorage){
+	$(document).ready(function(){
+		$(".save").click(function(){
+			var firstname=$("#firstName").val();
+			localStorage.setItem("first_name",firstname);
+			alert("Your first name is saved");
+		});
+		$(".access").click(function(){
+			alert("Hi, " +localStorage.getItem("first_name"));
+		});
+	});
+}
+else
+{
+	alert("Sorry,your browser donot suppport local storage.");
+}</script>
+</head>
+<body>
+<form>
+<label> FirstName: <input type="text" id="firstName"></label>
+<button type="button" class="save">Save Name</button>
+<button type="button" class="access">Get Name</button>
+</form>
+</body>
+</html>
